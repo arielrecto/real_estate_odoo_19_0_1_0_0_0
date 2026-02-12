@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="real_estate_menu_root" name="Real Estate"
+        web_icon="real_estate,static/description/icon.png" />
+
+    <menuitem id="real_estate_menu_properties" name="Estate Properties" action="action_real_estate"
+        parent="real_estate_menu_root" />
+
+
+    <menuitem id="real_estate_menu_owners" name="Owners" parent="real_estate_menu_root"
+        action="contacts.action_contacts" />
+
+
+    <menuitem id="real_estate_menu_configuration" name="Configuration"
+        parent="real_estate_menu_root" />
+
+
+    <menuitem id="real_estate_menu_property_type" name="Property Types"
+        parent="real_estate_menu_configuration" action="action_real_estate_property_type" />
+
+
+</odoo>

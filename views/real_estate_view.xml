@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_real_estate" model="ir.actions.act_window">
+        <field name="name">Estate Properties</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first property
+            </p>
+        </field>
+    </record>
+
+    <record id="real_estate_property_list_view" model="ir.ui.view">
+
+        <field name="name">real.estate.list</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <list string="Estate Properties">
+                <field name="name" />
+                <field name="location" />
+                <field name="expected_price" widget="monetary" />
+                <field name="selling_price" widget="monetary" />
+                <field name="state" />
+            </list>
+        </field>
+    </record>
+
+
+    <record id="real_estate_property_kanban_view" model="ir.ui.view">
+        <field name="name">real.estate.kanban</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_example">
+                <templates>
+                    <t t-name="card">
+                        <div
+                            t-attf-class="oe_kanban_card oe_kanban_global_click o_kanban_example #{record.state.raw_value == 'sold' ? 'o_kanban_record_hightlight' : ''}">
+                            <div class="o_kanban_image">
+                                <!--  <img
+                                    t-att-src="'/web/image/estate.property/' + String(record.id) + '/image_1920'" />
+                            -->
+
+                                <img
+                                    t-att-src="'/web/image/estate.property/' + record.id.raw_value + '/image'"
+                                    class="w-100 h-100 o_object_fit_cover" alt="Property Image" />
+                            </div>
+
+                            <div
+                                class="oe_kanban_details d-flex flex-column justify-content-between p-2">
+                                <div>
+                                    <strong class="o_kanban_record_title fs-4">
+                                        <field name="name" />
+                                    </strong>
+                                    <p class="text-muted mb-0">
+                                        <i class="fa fa-map-marker me-1"></i>
+                                        <field name="location" />
+                                    </p>
+                                </div>
+
+                                <div class="o_kanban_description mt-2">
+                                    <span class="text-muted">Description</span>
+                                    <field name="description" widget="text"
+                                        class="o_kanban_description mt-1" />
+                                </div>
+
+                                <div class="mt-2">
+                                    <p class="fw-bold mb-1 text-primary">
+                                        <i class="fa-solid fa-peso-sign me-1"></i>
+                                        <field name="expected_price" widget="monetary" />
+                                    </p>
+                                    <p class="fw-bold mb-1 text-success">
+                                        <i class="fa-solid fa-peso-sign me-1"></i>
+                                        <field name="selling_price" widget="monetary" />
+                                    </p>
+                                    <p
+                                        class="fw-bold mb-0 text-secondary badge rounded-pill text-bg-info">
+                                        <field name="state" />
+                                    </p>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+
+    </record>
+</odoo>

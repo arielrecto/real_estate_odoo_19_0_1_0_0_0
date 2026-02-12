@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="real_estate_property_sold_to_wizard" model="ir.ui.view">
+        <field name="name">real.estate.sold.to.wizard</field>
+        <field name="model">real.estate.property.sold.to.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Mark as Sold">
+                <group>
+                    <field name="property_id" readonly="1" />
+                    <field name="expected_price" widget="monetary" />
+                    <field name="selling_price" widget="monetary" />
+                    <field name="date_sold" widget="ai_datetime" />
+                    <field name="agent_commission" widget="monetary" />
+                    <field name="sold_to" widget="many2one" options="{'no_create': True}" />
+                </group>
+                <footer>
+                    <button string="Confirm" type="object" name="action_confirm_sold"
+                        class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
