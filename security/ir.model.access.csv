@@ -4,3 +4,5 @@ real_estate_access,access.real.estate,model_estate_property,base.group_user,1,1,
 real_estate_property_type_access,access.real.estate.property.type,model_real_estate_property_type,base.group_user,1,1,1,1
 
 real_estate_sold_wizard_access,access.real.estate.sold.to.wizard,model_real_estate_property_sold_to_wizard,base.group_user,1,1,1,1
+
+real_estate_property_owner_access,access.real.estate.property.owner,model_property_owner,base.group_user,1,1,1,1
